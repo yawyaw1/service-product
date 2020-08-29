@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Builder
+@EqualsAndHashCode
 @Entity
 @Table(name = "t_product")
 public class Product implements Serializable {
