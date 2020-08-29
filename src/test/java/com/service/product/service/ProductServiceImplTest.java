@@ -2,12 +2,15 @@ package com.service.product.service;
 
 import com.service.product.entity.Product;
 import com.service.product.repository.ProductRepository;
+import org.assertj.core.data.Index;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -63,6 +66,19 @@ class ProductServiceImplTest {
     }
 
     @Test
-    void findAllProducts() {
+    void should_return_a_list_of_all_products() {
+        //Given
+        Product p1 = Product.builder().id(1L).title("P1").build();
+        List<Product> products= Arrays.asList(p1);
+
+        //When
+        when(productRepository.findAll()).thenReturn(products);
+
+        List<Product> allProducts = productService.findAllProducts();
+
+        verify(productRepository,times(1)).findAll();
+
+        //Then
+        assertThat(allProducts).contains(p1, Index.atIndex(0));
     }
 }
