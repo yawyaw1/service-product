@@ -3,7 +3,6 @@ package com.service.product.service;
 import com.service.product.entity.Product;
 import com.service.product.repository.ProductRepository;
 import org.assertj.core.data.Index;
-<<<<<<< HEAD
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -23,8 +22,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.internal.bytebuddy.matcher.ElementMatchers;
 import org.hamcrest.CoreMatchers;
-=======
->>>>>>> c3d36b7... Add TU for find all products
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -62,7 +59,6 @@ class ProductServiceImplTest {
         Product product=Product.builder().id(1L).title("P1").build();
 
         //When
-
         when(productRepository.save(any(Product.class))).thenReturn(product);
 
         Product createdProduct = productService.create(product);
@@ -150,3 +146,4 @@ class ProductServiceImplTest {
         assertThat(allProducts).contains(p1, Index.atIndex(0));
     }
 }
+
