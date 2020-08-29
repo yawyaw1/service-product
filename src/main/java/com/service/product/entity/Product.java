@@ -1,20 +1,16 @@
 package com.service.product.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 @Entity
 @Table(name = "t_product")
 public class Product implements Serializable {
@@ -25,5 +21,5 @@ public class Product implements Serializable {
     private String title;
     private LocalDateTime releasedDate;
 
-   // private List<String> cities=new ArrayList<>();
+    // private List<String> cities=new ArrayList<>();
 }
